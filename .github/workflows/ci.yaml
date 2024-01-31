@@ -1,0 +1,18 @@
+name: Package Project
+
+# when I need to run automation process
+on: [push]
+
+jobs:
+  build_an_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # download the codebase
+      - uses: actions/checkout@v3
+      # my application was written in python
+      - name: Set up Python 3
+        uses: actions/setup-python@v3
+      # installation required packages
+      - name: install dependencies
+        uses: pip install -r requirements.txt
